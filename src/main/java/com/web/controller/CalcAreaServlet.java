@@ -1,6 +1,8 @@
 package com.web.controller;
 
+import com.web.Service.CalcAreaService;
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,18 +12,32 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/controller/CalcArea") //  url-pattern 
 public class CalcAreaServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("sorry~~");
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        resp.getWriter().print("sorry~~");
+//    }
+    // 計算service
+    private CalcAreaService service = new CalcAreaService();
+    
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String String_r = req.getParameter("r");
-        int r = Integer.parseInt(String_r);
-        double area = Math.pow(r, 2) * Math.PI;
-
-        resp.getWriter().print(String.format("r: %d area: %.2f", r, area));
+         // 1. 接收參數
+        String string_type = req.getParameter("type");
+        String string_r = req.getParameter("r");
+        int type = Integer.parseInt(string_type);
+        int r = Integer.parseInt(string_r);
+        
+        // 2. 商業邏輯運算
+        double area = service.getAreaResult(type, r);
+        
+        // 3. 建立分派器與 jsp 位置
+        RequestDispatcher rd = req.getRequestDispatcher("/jsps/CalcAreaResult.jsp");
+        // 3.1 新增/設定 request 屬性, 傳遞給 jsp 頁面使用
+        req.setAttribute("r", r);
+        req.setAttribute("result", String.format("%.2f", area));
+        // 3.2 傳送
+        rd.forward(req, resp);
+        //resp.getWriter().print(String.format("r: %d area: %.2f", r, area));
     }
-
 }
