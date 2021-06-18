@@ -1,14 +1,22 @@
 package com.web.controller;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.commons.io.IOUtils;
 
 //@WebServlet({"/controller/upload/image","/controller/upload/file"})
 @WebServlet("/controller/upload/*") //後置路徑對應 * 代表任意字串(path info)
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 2,
+        maxFileSize = 1024 * 1024 * 10,
+        maxRequestSize = 1024 * 1024 * 30
+)
 public class UploadServlet extends HttpServlet {
 
     @Override
@@ -31,7 +39,18 @@ public class UploadServlet extends HttpServlet {
     }
 
     private void uploadFile(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("cname"))
+                .forEach(part -> {
+                    try {
+                        String cname =  IOUtils.toString(part.getInputStream(), StandardCharsets.UTF_8.name());//API apache Apache Commons IO » 2.6
+                        resp.getWriter().print(part.getName().toString() + "<br />");
+                        resp.getWriter().print(cname + "<br  / >");
+                    } catch (Exception e) {
 
+                    }
+                });
     }
 
     private void uploadimage(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
