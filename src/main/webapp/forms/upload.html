@@ -7,33 +7,40 @@
         <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css">
     </head>
     <body style="padding: 20px">
-        
+
         <form class="pure-form" 
               enctype="multipart/form-data"
               method="post" action="/JavaEE_Web/controller/upload/file">
             <fieldset>
                 <legend>Upload 純文字文件 (表單編碼:multipart/form-data)</legend>
-                <input name="cname" type="text" placeholder="文件名稱" value=""><p /> 
+                <input name="cname" type="text" placeholder="文件名稱" value="" class="pure-input-rounded" ><p /> 
                 <p />
-                
+
                 <input type="file" name="upload_file" />
                 <p />
-                
+
                 <input type="file" name="upload_file" />
                 <p />
                 <button type="submit" class="pure-button pure-button-primary">上傳</button>
             </fieldset> 
         </form>
-        
-         <form class="pure-form" 
+
+        <form class="pure-form" 
               enctype="multipart/form-data"
               method="post" action="/JavaEE_Web/controller/upload/image">
             <fieldset>
                 <legend>Upload 圖片 (表單編碼:multipart/form-data)</legend>
-                <input name="cname" type="text" placeholder="圖片名稱" value=""><p /> 
+                <input name="cname" type="text" placeholder="圖片名稱" value="" class="pure-input-rounded" ><p /> 
                 <p />
-                <input type="file" name="upload_file" />
+                <input type="file" name="upload_file" class="pure-button"/>
                 <p />
+
+                <input type="file" name="upload_file" class="pure-button"/>
+                <p />
+
+                <input type="file" name="upload_file" class="pure-button"/>
+                <p />
+                
                 <button type="submit" class="pure-button pure-button-primary">上傳</button>
             </fieldset>
         </form>
