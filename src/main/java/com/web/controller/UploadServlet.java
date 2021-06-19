@@ -45,10 +45,21 @@ public class UploadServlet extends HttpServlet {
                 .forEach(part -> {
                     try {
                         String cname =  IOUtils.toString(part.getInputStream(), StandardCharsets.UTF_8.name());//API apache Apache Commons IO » 2.6
-                        resp.getWriter().print(part.getName().toString() + "<br />");
+                        resp.getWriter().print(part.getName().toString() + ":");
                         resp.getWriter().print(cname + "<br  / >");
                     } catch (Exception e) {
-
+                    }
+                });
+        
+        req.getParts()
+                .stream()
+                .filter(part -> part.getName().equals("upload_file"))
+                .forEach(part -> {
+                    try {
+                        String data =  IOUtils.toString(part.getInputStream(), StandardCharsets.UTF_8.name());//API apache Apache Commons IO » 2.6
+                        resp.getWriter().print(part.getName().toString() + ":");
+                        resp.getWriter().print(data + "<br  / >");
+                    } catch (Exception e) {
                     }
                 });
     }
