@@ -11,5 +11,6 @@
     
     <jsp:useBean id="calc2" class="com.web.job.Calc" />
     <jsp:setProperty name="calc2" property="x"  value="20" /> 
-    <jsp:setProperty name="calc2" property="2"  value="30" /> 
+    <jsp:setProperty name="calc2" property="2"  value="30" />
+    <jsp:setProperty name="calc2" property="result" />
 </html>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : hello.jsp
-    Created on : 2021/6/25, 下午 07:32:22
-    Author     : No Name
---%>
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="com.web.job.Lotto"%>
@@ -19,9 +13,6 @@
     </head>
     <body style="padding: 20px">
         <h1>
-            
-            <%@include ="hello.jsp" %>
-            
             <%
                 Lotto lotto = new Lotto();
                 List list = new ArrayList(lotto.get539());
