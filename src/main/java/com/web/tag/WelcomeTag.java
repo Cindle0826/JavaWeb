@@ -1,24 +1,27 @@
 package com.web.tag;
 
 import java.io.IOException;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.Tag;
 
-public class HelloTag implements Tag {
+public class WelcomeTag implements Tag {
 
     /*
-        <my:hello />
+        <my:welcome username="john">
 
-        晚安現在時刻: ...
-
-        預期
+        </my:welcome>
+    OUTPUT:
+    歡迎John 的光臨
+    現在時刻:2021/07/09 18:46:25
+    
      */
     private PageContext pageContext;
     private Tag parentTag;
-    private int hours = new Date().getHours();
+    private String username;
 
     @Override
     public void setPageContext(PageContext pc) {
@@ -27,7 +30,6 @@ public class HelloTag implements Tag {
 
     @Override
     public void setParent(Tag tag) {
-        // 上層標籤
         parentTag = tag;
     }
 
@@ -36,37 +38,27 @@ public class HelloTag implements Tag {
         return parentTag;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public int doStartTag() throws JspException {
         JspWriter out = pageContext.getOut();
         try {
-            if (hours >= 6 && hours < 12) {
-                out.print("早安");
-            } else if (hours >= 12 && hours < 18) {
-                out.print("午安");
-            } else {
-                out.print("晚安");
-            }
+            out.println("歡迎" + username + "的光臨");
         } catch (IOException ex) {
-
-        }
-        return Tag.SKIP_BODY;
+            }
+        return Tag.EVAL_BODY_INCLUDE;
     }
 
     @Override
     public int doEndTag() throws JspException {
-        JspWriter out = pageContext.getOut();
-        try {
-            out.print("現在時間: " + new Date());
-        } catch (IOException ex) {
-
-        }
         return Tag.EVAL_PAGE;
     }
 
     @Override
     public void release() {
-
     }
 
 }

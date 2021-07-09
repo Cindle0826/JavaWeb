@@ -8,6 +8,19 @@
   <tag>
       <name>hello</name>
       <tag-class>com.web.tag.HelloTag</tag-class>
+      <body-content>empty</body-content>
       <description>晚安現在時刻: ...</description>
+  </tag>
+    <!-- Welcome Tag -->
+  <tag>
+      <name>welcome</name>
+      <tag-class>com.web.tag.welcome</tag-class>
+      <body-content>JSP</body-content>
+      <description>welcome xxx</description>
+      <attribute>
+          <name>username</name>
+          <required>true</required>
+          <rtexprvalue>true</rtexprvalue>
+      </attribute>
   </tag>
 </taglib>
