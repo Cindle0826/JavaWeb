@@ -69,7 +69,7 @@ public class SearchTag implements BodyTag {
 
     @Override
     public int doEndTag() throws JspException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return Tag.EVAL_PAGE;
     }
 
     @Override
