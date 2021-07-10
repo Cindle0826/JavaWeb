@@ -51,11 +51,11 @@
         </attribute>
     </tag>
     
- <!-- Exchange tag -->
+    <!-- Exchange tag -->
     <tag>
-        <name>exchangem.web.tag.ExchangeTag</tag-class>
-        <body-conten</name>
-        <tag-class>cot>empty</body-content>
+        <name>exchange</name>
+        <tag-class>com.web.tag.ExchangeTag</tag-class>
+        <body-content>empty</body-content>
         <description>exchange xxx</description>
         <attribute>
             <name>symbol</name>
@@ -63,7 +63,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-    
 
     
 </taglib>
