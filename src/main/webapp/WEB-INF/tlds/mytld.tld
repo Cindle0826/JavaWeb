@@ -63,6 +63,19 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    
+    <!-- Loop tag -->
+    <tag>
+        <name>loop</name>
+        <tag-class>com.web.tag.LoopTag</tag-class>
+        <body-content>JSP</body-content>
+        <description>LoopTag</description>
+        <attribute>
+            <name>count</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
     
 </taglib>
