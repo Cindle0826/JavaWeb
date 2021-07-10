@@ -1,3 +1,4 @@
+<%@page import="java.util.Random"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/tlds/mytld" prefix="my" %>
 <!DOCTYPE html>
@@ -8,7 +9,10 @@
     </head>
     <body>
         <h1>
-            <my:lotto count="5" />
+            <my:lotto count="5" >
+                <%=new Random().nextInt(100) + 1%>
+
+            </my:lotto>
 
         </h1>
 
