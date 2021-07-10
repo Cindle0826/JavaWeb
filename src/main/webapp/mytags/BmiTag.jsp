@@ -1,4 +1,3 @@
-<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/tlds/mytld" prefix="my" %>
 <!DOCTYPE html>
