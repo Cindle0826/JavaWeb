@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>
-            <my:BMI h="170" w="60" result="false"/>
+            <my:BMI h="170" w="60" />
         </h1>
 
         <h1>

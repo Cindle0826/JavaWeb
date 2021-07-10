@@ -46,7 +46,7 @@
         
         <attribute>
             <name>result</name>
-            <required>true</required>
+            <required>false</required> <!-- false 可以不必要設置 -->
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
