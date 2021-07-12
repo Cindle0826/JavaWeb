@@ -77,7 +77,7 @@
         </attribute>
     </tag>
     
-        <!-- Lotto tag -->
+    <!-- Lotto tag -->
     <tag>
         <name>lotto</name>
         <tag-class>com.web.tag.LottoTag</tag-class>
@@ -90,7 +90,7 @@
         </attribute>
     </tag>
     
-            <!-- Search tag -->
+    <!-- Search tag -->
     <tag>
         <name>search</name>
         <tag-class>com.web.tag.SearchTag</tag-class>
@@ -98,6 +98,24 @@
         <description>SearchTag</description>
         <attribute>
             <name>key</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <!-- Circle Area  tag -->
+    <tag>
+        <name>circleArea</name>
+        <tag-class>com.web.tag.CircleAreaTag</tag-class>
+        <body-content>empty</body-content>
+        <description>area xxx</description>
+        <attribute>
+            <name>r</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>mode</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
