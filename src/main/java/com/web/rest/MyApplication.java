@@ -10,9 +10,12 @@ public class MyApplication extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
-        Set<Class<?>> classes = new LinkedHashSet<>();
+        //註冊 Rest service
+        Set<Class<?>> classes = new LinkedHashSet();
         classes.add(HelloService.class);
-        return classes;
+        classes.add(BMIService.class);
+        classes.add(BookService.class);
+         return classes;
     }
 
 }
