@@ -20,8 +20,12 @@ public class BookDAO {
     
     // 新增
     public static Boolean createBook(Book book){
-        books.add(book);
-        return true;
+        boolean flag = books.stream().filter(b -> b.getId() == book.getId()).findAny().isPresent();
+        if(flag == false){
+            books.add(book);
+            return true;
+        }
+        return false;
     }
     
     // 修改

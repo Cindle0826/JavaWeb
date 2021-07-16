@@ -14,21 +14,53 @@
                 ${ BookDAO.books }
             </fieldset>
         </form>
-            
-        <form class="pure-form"
-              method="post" action="/JavaEE_Web/rest/book">
-            <fieldset>
-                <legend>Rest Book POST</legend>
-                <input name="id" type="text" placeholder="id"><p /> 
-                <input name="name" type="text" placeholder="名稱"><p /> 
-                <input name="price" type="text" placeholder="價格"><p />
-                <p />
-                <button type="submit" 
-                        class="pure-button pure-button-primary">傳送</button>
-                     
-            </fieldset>
-        </form>
-        
-        
+
+        <table>
+            <td valign="top">
+                <form class="pure-form"
+                      method="post" action="/JavaEE_Web/rest/book">
+                    <fieldset>
+                        <legend>Rest Book POST</legend>
+                        <input name="id" type="text" placeholder="id"><p /> 
+                        <input name="name" type="text" placeholder="名稱"><p /> 
+                        <input name="price" type="text" placeholder="價格"><p />
+                        <p />
+                        <button type="submit" 
+                                class="pure-button pure-button-primary">新增</button>
+
+                    </fieldset>
+                </form>
+            </td>
+            <td valign="top">
+                <form class="pure-form"
+                      method="post" action="/JavaEE_Web/rest/book">
+                    <fieldset>
+                        <legend>Rest Book PUT</legend>
+                        <input name="_method" type="hidden" value="PUT" />
+                        <input name="id" type="text" placeholder="id"><p /> 
+                        <input name="name" type="text" placeholder="名稱"><p /> 
+                        <input name="price" type="text" placeholder="價格"><p />
+                        <p />
+                        <button type="submit" 
+                                class="pure-button pure-button-primary">修改</button>
+
+                    </fieldset>
+                </form>
+            </td>
+            <td valign="top">
+                <form class="pure-form"
+                      method="post" action="/JavaEE_Web/rest/book">
+                    <fieldset>
+                        <legend>Rest Book Delete</legend>
+                        <input name="_method" type="hidden" value="DELETE" />
+                        <input name="id" type="text" placeholder="id"><p /> 
+                        <p />
+                        <button type="submit" 
+                                class="pure-button pure-button-primary">刪除</button>
+
+                    </fieldset>
+                </form>    
+            </td>
+        </table>
     </body>
 </html>
