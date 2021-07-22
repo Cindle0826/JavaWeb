@@ -1,8 +1,11 @@
 package com.web.rest.bookstore;
 
+import com.google.gson.Gson;
+import java.util.Base64;
 import java.util.Objects;
 
 public class Book {
+
     private Integer id;
     private String name;
     private Integer price;
@@ -10,15 +13,11 @@ public class Book {
     public Book() {
     }
 
-    
-    
     public Book(Integer id, String name, Integer price) {
         this.id = id;
         this.name = name;
         this.price = price;
     }
-
-   
 
     public Integer getId() {
         return id;
@@ -70,7 +69,12 @@ public class Book {
 
     @Override
     public String toString() {
-        return "book{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
+        String json = new Gson().toJson(this);
+        try {
+            return Base64.getEncoder().encodeToString(json.getBytes("UTF-8"));
+        } catch (Exception e) {
+            return null;
+        }
     }
-    
+
 }

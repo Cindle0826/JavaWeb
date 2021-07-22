@@ -1,0 +1,5 @@
+SELECT
+*
+FROM Book b
+ORDER BY b.PRICE
+

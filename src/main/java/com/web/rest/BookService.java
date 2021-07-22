@@ -46,7 +46,7 @@ public class BookService {
             URI location = URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
-            return Response.status(500, "create error").build();
+            return Response.status(500).build();
         }
         //return BookDao.createBook(book).toString();
     }
@@ -55,19 +55,32 @@ public class BookService {
     @PUT
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String updateBook(@FormParam("id") Integer id,
+    public Response updateBook(@FormParam("id") Integer id,
             @FormParam("name") String name,
             @FormParam("price") Integer price) {
         Book book = new Book(id, name, price);
-        return BookDAO.updateBook(id, book).toString();
+        if (BookDAO.updateBook(id, book)) {
+            // 重導指定頁面
+            URI location = URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
+            return Response.temporaryRedirect(location).build();
+        } else {
+            return Response.status(500).build();
+        }
     }
 
     @Path("/")
     @DELETE
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.TEXT_PLAIN)
-    public String deleteBook(@FormParam("id") Integer id) {
-        return BookDAO.deleteBook(id).toString();
+    public Response deleteBook(@FormParam("id") Integer id) {
+        if (BookDAO.deleteBook(id)) {
+            // 重導指定頁面
+            URI location = 
+                    URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
+            return Response.temporaryRedirect(location).build();
+        } else {
+            return Response.status(500).build();
+        }
     }
 
 }
