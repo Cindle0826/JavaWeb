@@ -1,0 +1,1 @@
+DELETE FROM Book where id = 2;
