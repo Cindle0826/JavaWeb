@@ -1,4 +1,4 @@
--- å¢åŠ ä¸€å€‹ amount æ•¸é‡ int æ¬„ä½
+-- å¢å? ä??? amount ?•¸??? int æ¬„ä??
 -- ALTER TABLE  Book ADD COLUMN amount int DEFAULT 0; 
 
 SELECT

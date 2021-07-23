@@ -14,6 +14,7 @@ public class Book {
     public Book() {
     }
 
+
     public Book(Integer id, String name, Integer price, Integer amount) {
         this.id = id;
         this.name = name;

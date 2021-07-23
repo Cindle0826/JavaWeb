@@ -31,4 +31,3 @@ SUM(b.price * b.amount) AS SUBTOTAL,
 FROM Book b
 GROUP BY b."NAME"
 
-

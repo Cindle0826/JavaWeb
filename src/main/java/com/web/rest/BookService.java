@@ -43,7 +43,7 @@ public class BookService {
         Book book = new Book(id, name, price, amount);
 
         if (BookDAO.createBook(book)) {
-            // 重導指定頁面
+            // ??��?��?��?��?�面
             URI location = URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
@@ -62,7 +62,7 @@ public class BookService {
             @FormParam("amount") Integer amount){
         Book book = new Book(id, name, price,amount);
         if (BookDAO.updateBook(id, book)) {
-            // 重導指定頁面
+            // ??��?��?��?��?�面
             URI location = URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
         } else {
@@ -76,7 +76,7 @@ public class BookService {
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteBook(@FormParam("id") Integer id) {
         if (BookDAO.deleteBook(id)) {
-            // 重導指定頁面
+            // ??��?��?��?��?�面
             URI location
                     = URI.create("http://localhost:8080/JavaEE_Web/forms/rest_book.jsp");
             return Response.temporaryRedirect(location).build();
